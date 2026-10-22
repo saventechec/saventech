@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavenTech - Tienda Tecnológica</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'olive-tech': '#6B8E23', // Verde Oliva Técnico
+                        'olive-dark': '#55721B',
+                        'tech-black': '#111111',
+                        'tech-gray': '#71717A',
+                        'border-light': '#E4E4E7'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            color: #111111;
+        }
+        
+        /* Grid Borders Effect */
+        .grid-border-item {
+            border: 1px solid #E4E4E7;
+            transition: all 0.25s ease-in-out;
+        }
+        
+        .grid-border-item:hover {
+            border-color: #6B8E23;
+            box-shadow: 0 10px 25px -5px rgba(107, 142, 35, 0.08);
+        }
+
+        /* Subtle Smooth Transitions */
+        .tech-button {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .tech-button:hover {
+            transform: translateY(-1px);
+        }
+        
+        .tech-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Quantity Counter Styling */
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background-color: #F4F4F5;
+            color: #111111;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .qty-btn:hover {
+            background-color: #E4E4E7;
+        }
+        .qty-btn:active {
+            background-color: #6B8E23;
+            color: #FFFFFF;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFFFF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4D4D8;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B8E23;
+        }
+    </style>
+</head>
+<body class="bg-white text-tech-black antialiased">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-tech-black text-white text-xs text-center py-2 px-4 tracking-wide font-light">
+        Envío exprés gratis en compras superiores a $120 | Garantía oficial SavenTech
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-border-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="w-10"></div> <!-- Spacer for symmetry -->
+
+            <!-- Centered Brand Logo & Title -->
+            <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                <!-- SVG Logo -->
+                <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300 group-hover:scale-105">
+                    <path d="M 62 26 C 62 26 50 18 36 24 C 22 30 24 44 38 48 C 54 52 58 64 46 74 C 32 84 20 72 20 72" 
+                          stroke="#111111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 30 20 H 70 M 50 20 V 80" stroke="#6B8E23" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-xl font-bold tracking-tight text-tech-black">Saven<span class="text-olive-tech">Tech</span></span>
+            </a>
+
+            <!-- Right Header Actions (Cart / Menu) -->
+            <div class="flex items-center gap-4">
+                <button class="relative p-2 text-tech-black hover:text-olive-tech transition-colors" aria-label="Carrito de compras">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span class="absolute top-1 right-1 bg-olive-tech text-white text-[10px] font-semibold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero / Content Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-tech-black">
+                Tecnología de precisión <span class="text-olive-tech">para tu día a día</span>
+            </h1>
+            <p class="text-lg text-tech-gray font-light">
+                Descubre nuestra selección exclusiva de dispositivos de alta gama diseñados con un rendimiento superior y acabados minimalistas.
+            </p>
+            <div class="pt-6">
+                <a href="#productos" class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-olive-tech text-white font-medium shadow-sm hover:bg-olive-dark tech-button">
+                    Ver productos
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border-light bg-gray-50 mt-20 py-8 text-center text-sm text-tech-gray">
+        <p>&copy; 2026 SavenTech. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+ 
+    
