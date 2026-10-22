@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SavenTech – Tienda Tecnológica</title>
+    <title>SavenTech - Lo mejor en calidad precio</title>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -99,7 +100,7 @@
         }
     </style>
 </head>
-<body class="bg-white text-tech-black font-sans antialiased">
+<body class="antialiased">
 
     <!-- Top Announcement Bar -->
     <div class="bg-tech-black text-white text-xs text-center py-2 px-4 tracking-wide font-light">
@@ -113,175 +114,739 @@
 
             <!-- Centered Brand Logo & Title -->
             <a href="#" class="flex flex-col items-center justify-center group focus:outline-none">
-                <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300 group-hover:scale-105">
+                <!-- SVG Logo: Black 'S' intertwined with Olive Green 'T' with stylized robot core -->
+                <svg width="52" height="52" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300 group-hover:scale-105">
+                    <!-- Letter S (Dark Black/Charcoal) -->
                     <path d="M 62 26 C 62 26 50 18 36 24 C 22 30 24 44 38 48 C 54 52 58 64 46 74 C 32 84 20 72 20 72" 
                           stroke="#111111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 25 24 H 75 M 50 24 V 76" 
-                          stroke="#6B8E23" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- Letter T with Robot Silhuette inside the vertical bar (Olive Green) -->
+                    <!-- Top horizontal bar of T -->
+                    <path d="M 28 22 H 78" stroke="#6B8E23" stroke-width="8" stroke-linecap="round"/>
+                    <!-- Vertical bar of T -->
+                    <path d="M 54 22 V 78" stroke="#6B8E23" stroke-width="8" stroke-linecap="round"/>
+                    
+                    <!-- Integrated Stylized Robot details in the T's center line -->
+                    <!-- Robot Head/Visor element -->
+                    <rect x="46" y="36" width="16" height="8" rx="4" fill="#111111"/>
+                    <circle cx="51" cy="40" r="1.5" fill="#6B8E23"/>
+                    <circle cx="57" cy="40" r="1.5" fill="#6B8E23"/>
+                    <!-- Antenna -->
+                    <line x1="54" y1="30" x2="54" y2="36" stroke="#6B8E23" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Chest Light / Tech Nodes -->
+                    <circle cx="54" cy="54" r="2.5" fill="#FFFFFF" stroke="#111111" stroke-width="1.5"/>
+                    <line x1="48" y1="64" x2="60" y2="64" stroke="#FFFFFF" stroke-width="2"/>
                 </svg>
-                <span class="text-xl font-bold tracking-tight text-tech-black mt-1">Saven<span class="text-olive-tech">Tech</span></span>
+                
+                <span class="mt-1 text-xl font-bold tracking-tight text-tech-black uppercase tracking-widest font-sans">
+                    Saven<span class="text-olive-tech font-light">Tech</span>
+                </span>
             </a>
 
-            <!-- Header Actions -->
-            <div class="flex items-center space-x-6">
-                <a href="#combos" class="text-xs font-semibold text-olive-tech hover:underline hidden sm:block">Combos</a>
-                <a href="#catalogo" class="text-xs font-medium text-tech-black hover:text-olive-tech transition hidden sm:block">Catálogo</a>
-                <div class="relative">
-                    <i class="fa-solid fa-bag-shopping text-lg text-tech-black"></i>
-                    <span class="absolute -top-1.5 -right-2 bg-olive-tech text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                </div>
-            </div>
+            <!-- Quick Action / Cart Button -->
+            <button onclick="toggleCartModal()" class="relative p-2 text-tech-black hover:text-olive-tech transition-colors focus:outline-none" aria-label="Ver Carrito">
+                <i class="fa-solid fa-bag-shopping text-xl"></i>
+                <span id="cart-badge" class="absolute -top-1 -right-1 bg-olive-tech text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-tech-black tracking-tight leading-tight mb-6">
-            Tecnología de precisión <span class="text-olive-tech">para tu día a día</span>
-        </h1>
-        <p class="text-base sm:text-lg text-tech-gray max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-            Descubre nuestra selección exclusiva de dispositivos de alta gama diseñados con un rendimiento superior y acabados minimalistas.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#combos" class="bg-olive-dark text-white font-medium px-8 py-3.5 rounded-lg hover:bg-olive-tech transition duration-200 shadow-sm tech-button">
-                Ver Combos
-            </a>
-            <a href="#catalogo" class="border border-border-light text-tech-black font-medium px-8 py-3.5 rounded-lg hover:bg-gray-50 transition tech-button">
-                Ver Catálogo
-            </a>
+    <!-- Hero / Slogan Banner -->
+    <section class="py-12 border-b border-border-light bg-gradient-to-b from-zinc-50 to-white">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <span class="inline-block text-xs uppercase tracking-widest font-semibold text-olive-tech mb-2 bg-olive-tech/10 px-3 py-1 rounded-full">
+                Lo mejor en calidad precio
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-tech-black mb-4">
+                AirPods, cubos de carga, Smart Watch, y más
+            </h1>
+            <p class="text-tech-gray text-base sm:text-lg max-w-2xl mx-auto font-normal">
+                Dispositivos de alta precisión seleccionados minuciosamente para optimizar tu flujo de trabajo diario con estilo minimalista.
+            </p>
         </div>
     </section>
 
-    <!-- Combos Section -->
-    <section id="combos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border-light">
-        <div class="mb-8">
-            <span class="text-xs font-bold text-olive-tech uppercase tracking-widest">Promociones Especiales</span>
-            <h2 class="text-2xl font-bold text-tech-black mt-1">Combos Destacados</h2>
-        </div>
+    <!-- Main Content Layout Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Combo 1 -->
-            <div class="grid-border-item rounded-xl p-6 bg-white flex flex-col justify-between relative">
-                <span class="absolute top-4 right-4 bg-olive-tech text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">Ahorro Promocional</span>
+        <!-- SECTION 1: COMBOS DESTACADOS -->
+        <section id="combos">
+            <div class="flex items-center justify-between mb-8 pb-3 border-b border-border-light">
                 <div>
-                    <div class="w-full h-48 bg-gray-50 rounded-lg mb-6 flex items-center justify-center space-x-6">
-                        <i class="fa-solid fa-headphones text-5xl text-tech-black"></i>
-                        <span class="text-2xl font-light text-tech-gray">+</span>
-                        <i class="fa-solid fa-bolt text-4xl text-olive-tech"></i>
-                    </div>
-                    <span class="text-xs font-semibold text-olive-tech uppercase tracking-wider">Combo Pro</span>
-                    <h3 class="text-xl font-bold text-tech-black mt-1 mb-2">AirPods Pro 2 + Cargador Ugreen GaN</h3>
-                    <p class="text-sm text-tech-gray mb-6">El par perfecto para cancelación activa de ruido y carga ultrarrápida de alta eficiencia.</p>
+                    <h2 class="text-2xl font-bold text-tech-black uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-2 h-6 bg-olive-tech inline-block rounded-xs"></span>
+                        Combos Destacados
+                    </h2>
+                    <p class="text-xs text-tech-gray mt-1">Ofertas especiales por paquete y al por mayor</p>
                 </div>
-                <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                <span class="text-xs font-mono text-olive-tech bg-olive-tech/10 px-2.5 py-1 rounded-md border border-olive-tech/20">Ahorro Eficiente</span>
+            </div>
+
+            <!-- Bento/Grid Structure for Bundles -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Combo 1: Cubo Ugreen 30W + AirPods Pro 2 -->
+                <div class="grid-border-item rounded-xl p-6 flex flex-col justify-between bg-white relative group">
+                    <div class="absolute top-4 right-4 bg-tech-black text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full">
+                        Popular
+                    </div>
                     <div>
-                        <span class="text-xs text-tech-gray line-through block">$294.00</span>
-                        <span class="text-2xl font-black text-tech-black">$269.00</span>
+                        <div class="w-full h-52 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_12.png" 
+                                 alt="Combo Cubo Ugreen 30W + AirPods Pro 2" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=Ugreen+30W+%2B+AirPods+Pro+2'">
+                        </div>
+                        <h3 class="text-base font-bold text-tech-black mb-1">Combo Cubo Ugreen 30W + AirPods Pro 2</h3>
+                        <p class="text-xs text-tech-gray mb-4">Carga rápida con el cargador robótico Ugreen 30W y AirPods Pro 2.</p>
+                        
+                        <div class="bg-zinc-50 p-2.5 rounded-lg border border-zinc-100 mb-4 text-xs font-medium text-tech-black">
+                            • Cubo Ugreen 30W + AirPods Pro 2
+                        </div>
                     </div>
-                    <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20Combo%20AirPods%20Pro%202%20+%20Cargador%20Ugreen" target="_blank" class="bg-olive-dark hover:bg-olive-tech text-white text-xs font-bold px-5 py-3 rounded-lg transition tech-button flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-base"></i> Pedir por WhatsApp
-                    </a>
-                </div>
-            </div>
 
-            <!-- Combo 2 -->
-            <div class="grid-border-item rounded-xl p-6 bg-white flex flex-col justify-between relative">
-                <span class="absolute top-4 right-4 bg-olive-tech text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">Ahorro Promocional</span>
-                <div>
-                    <div class="w-full h-48 bg-gray-50 rounded-lg mb-6 flex items-center justify-center space-x-6">
-                        <i class="fa-solid fa-ear-listen text-5xl text-tech-black"></i>
-                        <span class="text-2xl font-light text-tech-gray">+</span>
-                        <i class="fa-solid fa-bolt text-4xl text-olive-tech"></i>
-                    </div>
-                    <span class="text-xs font-semibold text-olive-tech uppercase tracking-wider">Combo Essential</span>
-                    <h3 class="text-xl font-bold text-tech-black mt-1 mb-2">AirPods 4 + Cargador Ugreen GaN</h3>
-                    <p class="text-sm text-tech-gray mb-6">Ajuste anatómico rediseñado con la máxima potencia de carga para tu día a día.</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-border-light">
                     <div>
-                        <span class="text-xs text-tech-gray line-through block">$224.00</span>
-                        <span class="text-2xl font-black text-tech-black">$199.00</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-black text-tech-black">$45.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('combo1', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-combo1" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('combo1', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Combo Cubo Ugreen 30W + AirPods Pro 2', 45.00, 'combo1')" 
+                                class="tech-button w-full bg-tech-black text-white hover:bg-olive-tech py-3 px-4 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Pedir Combo
+                        </button>
                     </div>
-                    <a href="https://wa.me/?text=Hola,%20me%20interesa%20el%20Combo%20AirPods%204%20+%20Cargador%20Ugreen" target="_blank" class="bg-olive-dark hover:bg-olive-tech text-white text-xs font-bold px-5 py-3 rounded-lg transition tech-button flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-base"></i> Pedir por WhatsApp
-                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Individual Catalog Section -->
-    <section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border-light">
-        <h2 class="text-2xl font-bold mb-8 text-tech-black">Catálogo Individual</h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Producto 1 -->
-            <div class="grid-border-item rounded-xl overflow-hidden flex flex-col justify-between bg-white p-6">
+                <!-- Combo 2: Cubo Ugreen 30W + AirPods Pro 3 -->
+                <div class="grid-border-item rounded-xl p-6 flex flex-col justify-between bg-white relative group">
+                    <div class="absolute top-4 right-4 bg-olive-tech text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full">
+                        Recomendado
+                    </div>
+                    <div>
+                        <div class="w-full h-52 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_13.png" 
+                                 alt="Combo Cubo Ugreen 30W + AirPods Pro 3" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=Ugreen+30W+%2B+AirPods+Pro+3'">
+                        </div>
+                        <h3 class="text-base font-bold text-tech-black mb-1">Combo Cubo Ugreen 30W + AirPods Pro 3</h3>
+                        <p class="text-xs text-tech-gray mb-4">La máxima fidelidad de audio combinada con carga inteligente GaN.</p>
+                        
+                        <div class="bg-zinc-50 p-2.5 rounded-lg border border-zinc-100 mb-4 text-xs font-medium text-tech-black">
+                            • Cubo Ugreen 30W + AirPods Pro 3
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-black text-tech-black">$46.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('combo2', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-combo2" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('combo2', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Combo Cubo Ugreen 30W + AirPods Pro 3', 46.00, 'combo2')" 
+                                class="tech-button w-full bg-tech-black text-white hover:bg-olive-tech py-3 px-4 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Pedir Combo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Combo 3: AirPods Pro 2 (3 Unidades) -->
+                <div class="grid-border-item rounded-xl p-6 flex flex-col justify-between bg-white relative group">
+                    <div>
+                        <div class="w-full h-52 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_14.png" 
+                                 alt="Combo AirPods Pro 2" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=3x+AirPods+Pro+2'">
+                        </div>
+                        <h3 class="text-base font-bold text-tech-black mb-1">Combo AirPods Pro 2</h3>
+                        <p class="text-xs text-olive-tech font-semibold mb-4">3 AirPods Pro 2</p>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-black text-tech-black">$45.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('combo3', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-combo3" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('combo3', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Combo AirPods Pro 2 (3 Unidades)', 45.00, 'combo3')" 
+                                class="tech-button w-full bg-tech-black text-white hover:bg-olive-tech py-3 px-4 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Pedir Combo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Combo 4: AirPods Pro 3 (3 Unidades) -->
+                <div class="grid-border-item rounded-xl p-6 flex flex-col justify-between bg-white relative group">
+                    <div>
+                        <div class="w-full h-52 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_15.png" 
+                                 alt="Combo AirPods Pro 3" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=3x+AirPods+Pro+3'">
+                        </div>
+                        <h3 class="text-base font-bold text-tech-black mb-1">Combo AirPods Pro 3</h3>
+                        <p class="text-xs text-olive-tech font-semibold mb-4">3 AirPods Pro 3</p>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-black text-tech-black">$50.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('combo4', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-combo4" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('combo4', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Combo AirPods Pro 3 (3 Unidades)', 50.00, 'combo4')" 
+                                class="tech-button w-full bg-tech-black text-white hover:bg-olive-tech py-3 px-4 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Pedir Combo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Combo 5: Mixto -->
+                <div class="grid-border-item rounded-xl p-6 flex flex-col justify-between bg-white relative group">
+                    <div>
+                        <div class="w-full h-52 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_16.png" 
+                                 alt="Combo Mixto" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=Combo+Mixto'">
+                        </div>
+                        <h3 class="text-base font-bold text-tech-black mb-1">Combo Mixto</h3>
+                        <p class="text-xs text-olive-tech font-semibold mb-4">2 AirPods Pro 2 - 2 AirPods Pro 3</p>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-black text-tech-black">$60.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('combo5', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-combo5" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('combo5', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Combo Mixto (2 Pro 2 + 2 Pro 3)', 60.00, 'combo5')" 
+                                class="tech-button w-full bg-tech-black text-white hover:bg-olive-tech py-3 px-4 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Pedir Combo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Combo 6: Máster -->
+                <div class="grid-border-item rounded-xl p-6 flex flex-col justify-between bg-white relative group">
+                    <div class="absolute top-4 right-4 bg-zinc-800 text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full">
+                        Súper Pack
+                    </div>
+                    <div>
+                        <div class="w-full h-52 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_17.png" 
+                                 alt="Combo Máster" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=Combo+Master'">
+                        </div>
+                        <h3 class="text-base font-bold text-tech-black mb-1">Combo Máster</h3>
+                        <p class="text-xs text-olive-tech font-semibold mb-4">3 AirPods Pro 2 - 3 AirPods Pro 3</p>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-black text-tech-black">$85.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('combo6', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-combo6" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('combo6', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Combo Máster (3 Pro 2 + 3 Pro 3)', 85.00, 'combo6')" 
+                                class="tech-button w-full bg-tech-black text-white hover:bg-olive-tech py-3 px-4 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Pedir Combo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Combo 7: Mayorista -->
+                <div class="grid-border-item rounded-xl p-6 flex flex-col justify-between bg-white relative group md:col-span-2 lg:col-span-3">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-full md:w-1/3 h-48 bg-zinc-50 rounded-lg flex items-center justify-center p-4 border border-zinc-100">
+                            <img src="image_18.png" 
+                                 alt="Combo Mayorista" 
+                                 class="max-h-full object-contain filter drop-shadow-sm"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=Combo+Mayorista'">
+                        </div>
+                        <div class="flex-1 text-left">
+                            <span class="bg-olive-tech text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full inline-block mb-2">Empresarial / Mayorista</span>
+                            <h3 class="text-xl font-bold text-tech-black mb-1">Combo Mayorista</h3>
+                            <p class="text-sm text-olive-tech font-semibold mb-2">5 AirPods Pro 3 - 2 AirPods Pro 2</p>
+                            <p class="text-xs text-tech-gray mb-4">El lote ideal para revendedores o regalos corporativos con el mayor margen de beneficio.</p>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <span class="text-3xl font-black text-tech-black">$100.00</span>
+                                <!-- Quantity Selector -->
+                                <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                    <button onclick="changeQty('combo7', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                    <span id="qty-combo7" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                    <button onclick="changeQty('combo7', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                                </div>
+                                <button onclick="addWithQty('Combo Mayorista (5 Pro 3 + 2 Pro 2)', 100.00, 'combo7')" 
+                                        class="tech-button bg-tech-black text-white hover:bg-olive-tech py-3 px-6 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center gap-2 transition-colors">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    Pedir Combo Mayorista
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: PRODUCTOS INDIVIDUALES -->
+        <section id="productos">
+            <div class="flex items-center justify-between mb-8 pb-3 border-b border-border-light">
                 <div>
-                    <div class="w-full h-48 bg-gray-50 rounded-lg mb-6 flex items-center justify-center">
-                        <i class="fa-solid fa-headphones text-6xl text-gray-300"></i>
-                    </div>
-                    <span class="text-xs font-semibold text-olive-tech uppercase tracking-wider">Audio Premium</span>
-                    <h3 class="text-xl font-bold text-tech-black mt-1 mb-2">AirPods Pro 2</h3>
-                    <p class="text-sm text-tech-gray mb-4">Cancelación activa de ruido, audio espacial personalizado y estuche MagSafe.</p>
+                    <h2 class="text-2xl font-bold text-tech-black uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-2 h-6 bg-tech-black inline-block rounded-xs"></span>
+                        Productos Individuales
+                    </h2>
+                    <p class="text-xs text-tech-gray mt-1">Dispositivos y accesorios tecnológicos de precisión</p>
                 </div>
-                <div class="pt-4 border-t border-border-light flex items-center justify-between">
-                    <span class="text-xl font-extrabold text-tech-black">$249.00</span>
-                    <a href="https://wa.me/?text=Hola,%20me%20interesa%20comprar%20los%20AirPods%20Pro%202" target="_blank" class="bg-tech-black hover:bg-olive-tech text-white text-xs font-bold px-4 py-2.5 rounded-md transition tech-button">
-                        Comprar
-                    </a>
-                </div>
+                <span class="text-xs text-tech-gray font-mono">100% Garantizados</span>
             </div>
 
-            <!-- Producto 2 -->
-            <div class="grid-border-item rounded-xl overflow-hidden flex flex-col justify-between bg-white p-6">
+            <!-- Clean Grid for Individual Items -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Product 1: AirPods Pro 2 -->
+                <div class="grid-border-item rounded-xl p-5 flex flex-col justify-between bg-white group">
+                    <div>
+                        <div class="w-full h-48 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-3 border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_19.png" 
+                                 alt="AirPods Pro 2" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=AirPods+Pro+2'">
+                        </div>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-olive-tech">Audio High Quality</span>
+                        <h3 class="text-base font-bold text-tech-black mt-1 mb-2">AirPods Pro 2</h3>
+                        <p class="text-xs text-tech-gray mb-4">Excelente fidelidad de sonido, cancelación de ruido activa ANC y estuche de carga inteligente.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xl font-extrabold text-tech-black">$20.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('prod1', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-prod1" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('prod1', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('AirPods Pro 2', 20.00, 'prod1')" 
+                                class="tech-button w-full bg-white text-tech-black border border-tech-black hover:bg-tech-black hover:text-white py-2.5 px-3 rounded-lg font-medium text-xs tracking-wider uppercase transition-all">
+                            Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: AirPods Pro 3 -->
+                <div class="grid-border-item rounded-xl p-5 flex flex-col justify-between bg-white group">
+                    <div>
+                        <div class="w-full h-48 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-3 border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_20.png" 
+                                 alt="AirPods Pro 3" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=AirPods+Pro+3'">
+                        </div>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-olive-tech">Última Generación</span>
+                        <h3 class="text-base font-bold text-tech-black mt-1 mb-2">AirPods Pro 3</h3>
+                        <p class="text-xs text-tech-gray mb-4">Diseño ergonómico avanzado, batería optimizada y cancelación de ruido de alta precisión.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xl font-extrabold text-tech-black">$22.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('prod2', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-prod2" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('prod2', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('AirPods Pro 3', 22.00, 'prod2')" 
+                                class="tech-button w-full bg-white text-tech-black border border-tech-black hover:bg-tech-black hover:text-white py-2.5 px-3 rounded-lg font-medium text-xs tracking-wider uppercase transition-all">
+                            Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Cubo Ugreen 30W -->
+                <div class="grid-border-item rounded-xl p-5 flex flex-col justify-between bg-white group">
+                    <div>
+                        <div class="w-full h-48 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-3 border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="image_21.png" 
+                                 alt="Cubo de Carga Ugreen 30W" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=Ugreen+30W'">
+                        </div>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-olive-tech">Ugreen Official</span>
+                        <h3 class="text-base font-bold text-tech-black mt-1 mb-2">Cubo de Carga Ugreen 30W</h3>
+                        <p class="text-xs text-tech-gray mb-4">Carga ultra-rápida con pantalla robótica GaN, protección térmica y diseño exclusivo.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xl font-extrabold text-tech-black">$32.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('prod3', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-prod3" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('prod3', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Cubo de Carga Ugreen 30W', 32.00, 'prod3')" 
+                                class="tech-button w-full bg-white text-tech-black border border-tech-black hover:bg-tech-black hover:text-white py-2.5 px-3 rounded-lg font-medium text-xs tracking-wider uppercase transition-all">
+                            Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Forro Llano AirPods -->
+                <div class="grid-border-item rounded-xl p-5 flex flex-col justify-between bg-white group">
+                    <div>
+                        <div class="w-full h-48 bg-zinc-50 rounded-lg mb-4 flex items-center justify-center p-3 border border-zinc-100 group-hover:bg-zinc-100/50 transition-colors">
+                            <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Forro llano AirPods" 
+                                 class="max-h-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.src='https://placehold.co/400x400/FAFAFA/111111?text=Forro+Llano+AirPods'">
+                        </div>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-olive-tech">Protección Premium</span>
+                        <h3 class="text-base font-bold text-tech-black mt-1 mb-2">Forro Llano AirPods</h3>
+                        <p class="text-xs text-tech-gray mb-4">Funda protectora en acabado mate suave con gancho mosquetón metálico anti-caídas.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xl font-extrabold text-tech-black">$3.00</span>
+                            <!-- Quantity Selector -->
+                            <div class="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg border border-zinc-200">
+                                <button onclick="changeQty('prod4', -1)" class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                <span id="qty-prod4" class="w-8 text-center text-xs font-bold text-tech-black">1</span>
+                                <button onclick="changeQty('prod4', 1)" class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                        </div>
+                        <button onclick="addWithQty('Forro Llano AirPods', 3.00, 'prod4')" 
+                                class="tech-button w-full bg-white text-tech-black border border-tech-black hover:bg-tech-black hover:text-white py-2.5 px-3 rounded-lg font-medium text-xs tracking-wider uppercase transition-all">
+                            Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VALUE PROPOSITION / TRUST BADGES -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-t border-b border-border-light">
+            <div class="flex items-center gap-4 p-4">
+                <div class="w-12 h-12 rounded-full bg-olive-tech/10 flex items-center justify-center text-olive-tech text-xl shrink-0">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
                 <div>
-                    <div class="w-full h-48 bg-gray-50 rounded-lg mb-6 flex items-center justify-center">
-                        <i class="fa-solid fa-ear-listen text-6xl text-gray-300"></i>
-                    </div>
-                    <span class="text-xs font-semibold text-olive-tech uppercase tracking-wider">Audio Wireless</span>
-                    <h3 class="text-xl font-bold text-tech-black mt-1 mb-2">AirPods 4</h3>
-                    <p class="text-sm text-tech-gray mb-4">Ajuste anatómico rediseñado, arquitectura acústica mejorada y chip H2.</p>
-                </div>
-                <div class="pt-4 border-t border-border-light flex items-center justify-between">
-                    <span class="text-xl font-extrabold text-tech-black">$179.00</span>
-                    <a href="https://wa.me/?text=Hola,%20me%20interesa%20comprar%20los%20AirPods%204" target="_blank" class="bg-tech-black hover:bg-olive-tech text-white text-xs font-bold px-4 py-2.5 rounded-md transition tech-button">
-                        Comprar
-                    </a>
+                    <h4 class="font-bold text-sm text-tech-black">Garantía Directa</h4>
+                    <p class="text-xs text-tech-gray">Cobertura oficial en todos nuestros productos</p>
                 </div>
             </div>
-
-            <!-- Producto 3 -->
-            <div class="grid-border-item rounded-xl overflow-hidden flex flex-col justify-between bg-white p-6">
+            <div class="flex items-center gap-4 p-4">
+                <div class="w-12 h-12 rounded-full bg-olive-tech/10 flex items-center justify-center text-olive-tech text-xl shrink-0">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
                 <div>
-                    <div class="w-full h-48 bg-gray-50 rounded-lg mb-6 flex items-center justify-center">
-                        <i class="fa-solid fa-bolt text-6xl text-gray-300"></i>
-                    </div>
-                    <span class="text-xs font-semibold text-olive-tech uppercase tracking-wider">Carga & Energía</span>
-                    <h3 class="text-xl font-bold text-tech-black mt-1 mb-2">Cargador Ugreen GaN</h3>
-                    <p class="text-sm text-tech-gray mb-4">Carga ultra rápida multidispositivo con tecnología GaN de alta eficiencia.</p>
-                </div>
-                <div class="pt-4 border-t border-border-light flex items-center justify-between">
-                    <span class="text-xl font-extrabold text-tech-black">$45.00</span>
-                    <a href="https://wa.me/?text=Hola,%20me%20interesa%20comprar%20el%20Cargador%20Ugreen" target="_blank" class="bg-tech-black hover:bg-olive-tech text-white text-xs font-bold px-4 py-2.5 rounded-md transition tech-button">
-                        Comprar
-                    </a>
+                    <h4 class="font-bold text-sm text-tech-black">Envíos Rápidos</h4>
+                    <p class="text-xs text-tech-gray">Entregas seguras e inmediatas a todo el país</p>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="flex items-center gap-4 p-4">
+                <div class="w-12 h-12 rounded-full bg-olive-tech/10 flex items-center justify-center text-olive-tech text-xl shrink-0">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm text-tech-black">Atención Personalizada</h4>
+                    <p class="text-xs text-tech-gray">Asesoría técnica en tiempo real por WhatsApp</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-border-light py-8 px-4 mt-12 bg-white">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs text-tech-gray gap-4">
-            <p>© 2026 SavenTech. Todos los derechos reservados.</p>
-            <div class="flex space-x-4">
-                <a href="#" class="hover:underline">Privacidad</a>
-                <a href="#" class="hover:underline">Términos</a>
-                <a href="#" class="hover:underline">Soporte</a>
+    </main>
+
+    <!-- FOOTER WITH CONTACT & SOCIAL LINKS -->
+    <footer class="bg-white border-t border-border-light pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center text-center mb-12">
+                
+                <!-- Footer Brand Logo -->
+                <div class="flex items-center gap-3 mb-4">
+                    <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 62 26 C 62 26 50 18 36 24 C 22 30 24 44 38 48 C 54 52 58 64 46 74 C 32 84 20 72 20 72" stroke="#111111" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M 28 22 H 78" stroke="#6B8E23" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M 54 22 V 78" stroke="#6B8E23" stroke-width="8" stroke-linecap="round"/>
+                        <rect x="46" y="36" width="16" height="8" rx="4" fill="#111111"/>
+                    </svg>
+                    <span class="text-lg font-bold tracking-widest text-tech-black">SAVENTECH</span>
+                </div>
+                
+                <p class="text-xs text-tech-gray max-w-md mb-8">
+                    Conectando innovación, diseño minimalista y rendimiento tecnológico excepcional para tu día a día.
+                </p>
+
+                <!-- Interactive Social Media Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/593994042788?text=Hola%20SavenTech,%20deseo%20más%20información" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="tech-button flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-zinc-200 text-tech-black hover:border-emerald-600 hover:text-emerald-600 hover:bg-emerald-50/50 text-xs font-medium transition-all">
+                        <i class="fa-brands fa-whatsapp text-base text-emerald-600"></i>
+                        <span>WhatsApp Directo</span>
+                    </a>
+
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@saven.tech?_r=1&_t=ZS-9Am8EKX2QqL" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="tech-button flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-zinc-200 text-tech-black hover:border-tech-black hover:bg-zinc-50 text-xs font-medium transition-all">
+                        <i class="fa-brands fa-tiktok text-base text-tech-black"></i>
+                        <span>TikTok Official</span>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/saven_tech?obrf=MXR0bGpmOXgxMmUydQ==" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="tech-button flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-zinc-200 text-tech-black hover:border-pink-600 hover:text-pink-600 hover:bg-pink-50/50 text-xs font-medium transition-all">
+                        <i class="fa-brands fa-instagram text-base text-pink-600"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-border-light pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-tech-gray gap-4">
+                <p>&copy; 2026 SavenTech Inc. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-tech-black transition-colors">Política de Privacidad</a>
+                    <a href="#" class="hover:text-tech-black transition-colors">Términos del Servicio</a>
+                    <a href="#" class="hover:text-tech-black transition-colors">Garantías</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- SHOPPING CART MODAL SLIDE-OVER -->
+    <div id="cart-modal" class="fixed inset-0 z-50 invisible opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div onclick="toggleCartModal()" class="absolute inset-0 bg-black/40 backdrop-blur-xs"></div>
+        
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cart-drawer">
+            <div class="p-6 border-b border-border-light flex items-center justify-between">
+                <h3 class="text-base font-bold text-tech-black flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-olive-tech"></i>
+                    Tu Pedido SavenTech
+                </h3>
+                <button onclick="toggleCartModal()" class="text-tech-gray hover:text-tech-black p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items Container -->
+            <div id="cart-items" class="p-6 overflow-y-auto flex-1 space-y-4">
+                <p class="text-xs text-tech-gray text-center py-8">Tu carrito está vacío actualmente.</p>
+            </div>
+
+            <!-- Cart Footer Summary -->
+            <div class="p-6 border-t border-border-light bg-zinc-50">
+                <div class="flex justify-between items-center mb-4 text-sm font-bold text-tech-black">
+                    <span>Total Estimado:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" 
+                        class="tech-button w-full bg-olive-tech text-white hover:bg-olive-dark py-3 rounded-lg font-medium text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    Finalizar Pedido por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTION LOGIC (CART & MODAL) -->
+    <script>
+        let cart = [];
+        const quantities = {};
+
+        function changeQty(id, delta) {
+            if (!quantities[id]) quantities[id] = 1;
+            quantities[id] = Math.max(1, quantities[id] + delta);
+            const el = document.getElementById(`qty-${id}`);
+            if (el) el.innerText = quantities[id];
+        }
+
+        function addWithQty(title, price, qtyId) {
+            const qty = quantities[qtyId] || 1;
+            for (let i = 0; i < qty; i++) {
+                cart.push({ title, price });
+            }
+            updateCartUI();
+            toggleCartModal();
+            // Reset counter to 1 after adding to cart
+            quantities[qtyId] = 1;
+            const el = document.getElementById(`qty-${qtyId}`);
+            if (el) el.innerText = 1;
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            const drawer = document.getElementById('cart-drawer');
+            
+            if (modal.classList.contains('invisible')) {
+                modal.classList.remove('invisible', 'opacity-0');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('translate-x-full');
+                setTimeout(() => {
+                    modal.classList.add('invisible', 'opacity-0');
+                }, 300);
+            }
+        }
+
+        function addToCart(title, price) {
+            cart.push({ title, price });
+            updateCartUI();
+            toggleCartModal();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            badge.innerText = cart.length;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-xs text-tech-gray text-center py-8">Tu carrito está vacío actualmente.</p>';
+                totalEl.innerText = '$0.00';
+                return;
+            }
+
+            // Group cart items by title
+            const itemCounts = {};
+            cart.forEach(item => {
+                if (!itemCounts[item.title]) {
+                    itemCounts[item.title] = { count: 0, price: item.price };
+                }
+                itemCounts[item.title].count += 1;
+            });
+
+            let total = 0;
+            container.innerHTML = '';
+
+            Object.keys(itemCounts).forEach(title => {
+                const item = itemCounts[title];
+                const subtotal = item.price * item.count;
+                total += subtotal;
+
+                const itemEl = document.createElement('div');
+                itemEl.className = 'flex items-center justify-between p-3 bg-white border border-border-light rounded-lg text-xs';
+                
+                // Safe string escaping for HTML inline handlers
+                const safeTitle = title.replace(/'/g, "\\'");
+                
+                itemEl.innerHTML = `
+                    <div>
+                        <p class="font-semibold text-tech-black">${title}</p>
+                        <p class="text-tech-gray">${item.count}x $${item.price.toFixed(2)} = <span class="font-bold text-tech-black">$${subtotal.toFixed(2)}</span></p>
+                    </div>
+                    <button onclick="removeAllOfItem('${safeTitle}')" class="text-red-500 hover:text-red-700 p-1" title="Eliminar del carrito">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                `;
+                container.appendChild(itemEl);
+            });
+
+            totalEl.innerText = `$${total.toFixed(2)}`;
+        }
+
+        function removeAllOfItem(title) {
+            cart = cart.filter(item => item.title !== title);
+            updateCartUI();
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                const container = document.getElementById('cart-items');
+                container.innerHTML = '<p class="text-xs text-red-500 font-semibold text-center py-4">¡Por favor añade al menos un producto antes de pedir!</p>';
+                setTimeout(() => updateCartUI(), 2500);
+                return;
+            }
+
+            // Construct readable plain-text WhatsApp order
+            let text = "Hola SavenTech, deseo realizar el siguiente pedido:\n\n";
+            let total = 0;
+
+            const itemCounts = {};
+            cart.forEach(item => {
+                if (!itemCounts[item.title]) {
+                    itemCounts[item.title] = { count: 0, price: item.price };
+                }
+                itemCounts[item.title].count += 1;
+            });
+
+            let idx = 1;
+            Object.keys(itemCounts).forEach(title => {
+                const item = itemCounts[title];
+                const subtotal = item.price * item.count;
+                total += subtotal;
+                text += `${idx}. ${title} (x${item.count}) - $${subtotal.toFixed(2)}\n`;
+                idx++;
+            });
+
+            text += `\nTotal a pagar: $${total.toFixed(2)}\n\n¿Me ayudan con los detalles de la entrega?`;
+
+            // Phone number: 0994042788 -> 593994042788 (Ecuador)
+            const phone = "593994042788";
+            
+            // Build direct wa.me link with encoded text query
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            
+            // Create temporary invisible link element to trigger natural browser navigation
+            const link = document.createElement('a');
+            link.href = whatsappUrl;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 </html>
