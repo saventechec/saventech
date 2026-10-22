@@ -3,159 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SavenTech - Tienda Tecnológica</title>
+    <title>SavenTech | Tecnología de Precisión</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'olive-tech': '#6B8E23', // Verde Oliva Técnico
-                        'olive-dark': '#55721B',
-                        'tech-black': '#111111',
-                        'tech-gray': '#71717A',
-                        'border-light': '#E4E4E7'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        brand: {
+                            50: '#f4f7f2',
+                            100: '#e3ebd9',
+                            500: '#556b2f',
+                            600: '#465827',
+                            700: '#38461f',
+                            900: '#1d2510',
+                        }
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #FFFFFF;
-            font-family: 'Inter', sans-serif;
-            color: #111111;
-        }
-        
-        /* Grid Borders Effect */
-        .grid-border-item {
-            border: 1px solid #E4E4E7;
-            transition: all 0.25s ease-in-out;
-        }
-        
-        .grid-border-item:hover {
-            border-color: #6B8E23;
-            box-shadow: 0 10px 25px -5px rgba(107, 142, 35, 0.08);
-        }
-
-        /* Subtle Smooth Transitions */
-        .tech-button {
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .tech-button:hover {
-            transform: translateY(-1px);
-        }
-        
-        .tech-button:active {
-            transform: translateY(0);
-        }
-        
-        /* Quantity Counter Styling */
-        .qty-btn {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            background-color: #F4F4F5;
-            color: #111111;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            user-select: none;
-        }
-        .qty-btn:hover {
-            background-color: #E4E4E7;
-        }
-        .qty-btn:active {
-            background-color: #6B8E23;
-            color: #FFFFFF;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FFFFFF;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D4D4D8;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6B8E23;
-        }
-    </style>
 </head>
-<body class="bg-white text-tech-black antialiased">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-tech-black text-white text-xs text-center py-2 px-4 tracking-wide font-light">
+    <!-- Top Banner -->
+    <div class="bg-black text-white text-xs py-2 text-center px-4 font-medium tracking-wide">
         Envío exprés gratis en compras superiores a $120 | Garantía oficial SavenTech
     </div>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-border-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="w-10"></div> <!-- Spacer for symmetry -->
-
-            <!-- Centered Brand Logo & Title -->
-            <a href="#" class="flex items-center gap-3 group focus:outline-none">
-                <!-- SVG Logo -->
-                <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300 group-hover:scale-105">
-                    <path d="M 62 26 C 62 26 50 18 36 24 C 22 30 24 44 38 48 C 54 52 58 64 46 74 C 32 84 20 72 20 72" 
-                          stroke="#111111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M 30 20 H 70 M 50 20 V 80" stroke="#6B8E23" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="text-xl font-bold tracking-tight text-tech-black">Saven<span class="text-olive-tech">Tech</span></span>
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <!-- Custom ST Logo style -->
+                <div class="font-extrabold text-2xl tracking-tighter text-black flex items-center">
+                    <span class="text-brand-500 text-3xl">S</span>T
+                </div>
+                <span class="font-bold text-xl tracking-tight">Saven<span class="text-brand-500">Tech</span></span>
             </a>
+            <a href="https://wa.me/" target="_blank" class="bg-brand-500 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-brand-600 transition duration-200 flex items-center gap-2">
+                <i class="fab font-bold fa-whatsapp text-lg"></i> Contactar
+            </a>
+        </div>
+    </nav>
 
-            <!-- Right Header Actions (Cart / Menu) -->
-            <div class="flex items-center gap-4">
-                <button class="relative p-2 text-tech-black hover:text-olive-tech transition-colors" aria-label="Carrito de compras">
-                    <i class="fa-solid fa-bag-shopping text-xl"></i>
-                    <span class="absolute top-1 right-1 bg-olive-tech text-white text-[10px] font-semibold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                </button>
+    <!-- Hero Section -->
+    <section class="py-16 px-4 text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-4">
+            Tecnología de precisión <span class="text-brand-500">para tu día a día</span>
+        </h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
+            Descubre nuestra selección exclusiva de dispositivos y accesorios de alta gama diseñados con un rendimiento superior y acabados minimalistas.
+        </p>
+        <a href="#catalogo" class="inline-block bg-brand-500 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-brand-500/20 hover:bg-brand-600 transition transform active:scale-95">
+            Ver catálogo completo
+        </a>
+    </section>
+
+    <!-- Products Catalog Section -->
+    <section id="catalogo" class="py-12 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">Catálogo Destacado</h2>
+                    <p class="text-sm text-gray-500">Productos en stock con entrega inmediata</p>
+                </div>
+            </div>
+
+            <!-- Grid de Productos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Producto 1: AirPods Pro 2 -->
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-full h-48 bg-white rounded-xl mb-4 flex items-center justify-center p-4">
+                            <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQD83?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1660803972361" alt="AirPods Pro 2" class="max-h-full object-contain">
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-500 bg-brand-50 px-2.5 py-1 rounded-md">Audífonos</span>
+                        <h3 class="font-bold text-lg text-gray-900 mt-2">AirPods Pro 2ª Gen</h3>
+                        <p class="text-sm text-gray-500 mt-1">Cancelación activa de ruido, audio espacial y estuche MagSafe.</p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-gray-900">$25.00</span>
+                        <a href="https://wa.me/?text=Hola%20SavenTech,%20me%20interesan%20los%20AirPods%20Pro%202" target="_blank" class="bg-gray-900 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-brand-500 transition">
+                            Pedir por WA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Producto 2: AirPods 4 -->
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-full h-48 bg-white rounded-xl mb-4 flex items-center justify-center p-4">
+                            <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MXP63?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1724175722247" alt="AirPods 4" class="max-h-full object-contain">
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-500 bg-brand-50 px-2.5 py-1 rounded-md">Audífonos</span>
+                        <h3 class="font-bold text-lg text-gray-900 mt-2">AirPods 4</h3>
+                        <p class="text-sm text-gray-500 mt-1">Ajuste rediseñado, arquitectura acústica mejorada y chip H2.</p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-gray-900">$25.00</span>
+                        <a href="https://wa.me/?text=Hola%20SavenTech,%20me%20interesan%20los%20AirPods%204" target="_blank" class="bg-gray-900 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-brand-500 transition">
+                            Pedir por WA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Cargador Ugreen -->
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-full h-48 bg-white rounded-xl mb-4 flex items-center justify-center p-4">
+                            <img src="https://m.media-amazon.com/images/I/61NfT-g8d9L._AC_SL1500_.jpg" alt="Cargador Ugreen" class="max-h-full object-contain">
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-500 bg-brand-50 px-2.5 py-1 rounded-md">Accesorios Ugreen</span>
+                        <h3 class="font-bold text-lg text-gray-900 mt-2">Cargador Ugreen Nexode GaN</h3>
+                        <p class="text-sm text-gray-500 mt-1">Carga rápida ultra compacta y segura para smartphone y laptop.</p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-gray-900">$20.00</span>
+                        <a href="https://wa.me/?text=Hola%20SavenTech,%20me%20interesa%20el%20Cargador%20Ugreen" target="_blank" class="bg-gray-900 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-brand-500 transition">
+                            Pedir por WA
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </header>
-
-    <!-- Main Hero / Content Section -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="text-center max-w-3xl mx-auto space-y-4">
-            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-tech-black">
-                Tecnología de precisión <span class="text-olive-tech">para tu día a día</span>
-            </h1>
-            <p class="text-lg text-tech-gray font-light">
-                Descubre nuestra selección exclusiva de dispositivos de alta gama diseñados con un rendimiento superior y acabados minimalistas.
-            </p>
-            <div class="pt-6">
-                <a href="#productos" class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-olive-tech text-white font-medium shadow-sm hover:bg-olive-dark tech-button">
-                    Ver productos
-                </a>
-            </div>
-        </div>
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-border-light bg-gray-50 mt-20 py-8 text-center text-sm text-tech-gray">
-        <p>&copy; 2026 SavenTech. Todos los derechos reservados.</p>
+    <footer class="bg-gray-900 text-gray-400 py-10 px-4 text-center border-t border-gray-800">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+            <p>© 2026 SavenTech. Todos los derechos reservados.</p>
+            <p class="flex items-center gap-1">Entregas locales y envíos seguros con cobertura nacional.</p>
+        </div>
     </footer>
 
 </body>
 </html>
+
 
  
     
